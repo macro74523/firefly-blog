@@ -1,0 +1,35 @@
+# 每行一个图片 URL，支持 jpg/png/webp/avif/gif后缀
+# # 号开头的行为注释，空行会被忽略
+# 示例：
+https://img.olinl.com/file/gallery/bqb-baizi/001.avif
+https://img.olinl.com/file/gallery/bqb-baizi/002.avif
+https://img.olinl.com/file/gallery/bqb-baizi/003.avif
+https://img.olinl.com/file/gallery/bqb-baizi/004.avif
+https://img.olinl.com/file/gallery/bqb-baizi/005.avif
+https://img.olinl.com/file/gallery/bqb-baizi/006.avif
+https://img.olinl.com/file/gallery/bqb-baizi/007.avif
+https://img.olinl.com/file/gallery/bqb-baizi/008.avif
+https://img.olinl.com/file/gallery/bqb-baizi/009.avif
+https://img.olinl.com/file/gallery/bqb-baizi/010.avif
+https://img.olinl.com/file/gallery/bqb-baizi/011.avif
+https://img.olinl.com/file/gallery/bqb-baizi/012.avif
+https://img.olinl.com/file/gallery/bqb-baizi/013.avif
+https://img.olinl.com/file/gallery/bqb-baizi/014.avif
+https://img.olinl.com/file/gallery/bqb-baizi/015.avif
+https://img.olinl.com/file/gallery/bqb-baizi/016.avif
+https://img.olinl.com/file/gallery/bqb-baizi/017.avif
+https://img.olinl.com/file/gallery/bqb-baizi/018.avif
+https://img.olinl.com/file/gallery/bqb-baizi/019.avif
+https://img.olinl.com/file/gallery/bqb-baizi/020.avif
+https://img.olinl.com/file/gallery/bqb-baizi/021.avif
+https://img.olinl.com/file/gallery/bqb-baizi/022.avif
+https://img.olinl.com/file/gallery/bqb-baizi/023.avif
+https://img.olinl.com/file/gallery/bqb-baizi/024.avif
+https://img.olinl.com/file/gallery/bqb-baizi/025.avif
+https://img.olinl.com/file/gallery/bqb-baizi/026.avif
+https://img.olinl.com/file/gallery/bqb-baizi/027.avif
+https://img.olinl.com/file/gallery/bqb-baizi/028.avif
+https://img.olinl.com/file/gallery/bqb-baizi/029.avif
+https://img.olinl.com/file/gallery/bqb-baizi/030.avif
+https://img.olinl.com/file/gallery/bqb-baizi/031.avif
+https://img.olinl.com/file/gallery/bqb-baizi/032.avif

@@ -47,6 +47,10 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 留言
 			LinkPresets.Guestbook,
+
+			
+			// 相册
+			LinkPresets.Gallery,
 		],
 	});
 
@@ -56,8 +60,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:person",
 		children: [
-			// 相册
-			LinkPresets.Gallery,
 
 			// 追番
 			LinkPresets.Anime,
