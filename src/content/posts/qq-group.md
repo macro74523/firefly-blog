@@ -16,7 +16,7 @@ pinned: true                                  # 置顶
 
 这个博客断断续续写了有一阵子了，分享的大多是技术折腾、学习笔记和一些零碎的思考。虽然写东西本身是件挺私人的事，但每次看到评论区或者后台有朋友留言交流，还是觉得——有人一起聊，真好。
 
-![起源](https://row-blog.olinl.com/post-img/qq-group/0002.webp)
+![起源](https://img.olinl.com/file/post-img/qq-group/0002.webp)
 
 
 所以，我建了一个 QQ 群。
@@ -27,7 +27,7 @@ pinned: true                                  # 置顶
 
 扫描下方二维码，或者点击链接加入群聊【[Olinl Blog 技术交流群](https://qm.qq.com/q/KCNRzy51uy)】
 
-<img src="https://row-blog.olinl.com/post-img/qq-group/0003.webp" alt="扫一扫二维码，加入群聊" width="450" class="mx-auto block rounded-lg" />
+<img src="https://img.olinl.com/file/post-img/qq-group/0003.webp" alt="扫一扫二维码，加入群聊" width="450" class="mx-auto block rounded-lg" />
 
 
 ## 🔗 最后

@@ -4,7 +4,7 @@ slug: 'footer-config'
 published: 2026-07-19 15:03:19
 updated: 2026-07-22 19:30:00
 description: '通过修改 FooterConfig.html 自由定制页脚——技术徽章、社交链接、备案号、运行时长。'
-image: https://row-blog.olinl.com/post-img/footer-config/cover.webp
+image: https://img.olinl.com/file/post-img/footer-config/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 配置]
 draft: false
@@ -13,7 +13,7 @@ draft: false
 
 `FooterConfig.html` 是 Firefly 博客页脚的 HTML 模板文件，位于 `src/config/FooterConfig.html`。内容是纯内联 CSS + HTML + 一小段 JavaScript，直接在文件中修改即可生效，无需改动组件代码。
 
-![完整的页脚效果](https://row-blog.olinl.com/post-img/footer-config/0001.webp)
+![完整的页脚效果](https://img.olinl.com/file/post-img/footer-config/0001.webp)
 ## 文件结构
 
 整个文件分五个区域，颜色使用 CSS 变量 `var(--primary)` 跟随主题色自动适配浅色/深色模式。

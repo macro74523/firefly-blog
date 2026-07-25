@@ -4,7 +4,7 @@ slug: 'copy-toast'
 published: 2026-07-21 19:41:32
 updated: 2026-07-22 19:30:00
 description: '全局监听复制事件，复制成功后底部弹出提示浮层，附带动画进度条。'
-image: https://row-blog.olinl.com/post-img/copy-toast/cover.webp
+image: https://img.olinl.com/file/post-img/copy-toast/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 交互]
 draft: false
@@ -14,7 +14,7 @@ pinned: false
 当访客复制博客内容时，顶部自动弹出"复制成功，转载请标注本文地址"的提示浮层，并带有一个进度条动画——既友好地提醒了版权，又提供了优雅的视觉反馈。
 ## 一、功能概览
 
-![复制提示浮层弹出的效果截图](https://row-blog.olinl.com/post-img/copy-toast/0001.webp)
+![复制提示浮层弹出的效果截图](https://img.olinl.com/file/post-img/copy-toast/0001.webp)
 - 监听全局 `copy` 事件
 - 顶部滑入提示浮层，3 秒后自动消失
 - 进度条从左到右动画，模拟倒计时
@@ -153,7 +153,7 @@ onMount(() => {
 > [!TIP] 重排技巧
 > 先设为 `false` 再延迟设为 `true`，是为了触发浏览器重排让进度条动画能重新播放。
 
-![进度条动画过程](https://row-blog.olinl.com/post-img/copy-toast/0002.webp)
+![进度条动画过程](https://img.olinl.com/file/post-img/copy-toast/0002.webp)
 
 `src/components/common/CopyMessage.svelte` — showCopyMessage 函数变更：
 

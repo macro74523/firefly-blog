@@ -4,7 +4,7 @@ slug: 'umami-views'
 published: 2026-07-03 21:40:29
 updated: 2026-07-22 19:30:00
 description: '集成 Umami 统计并通过公开 Share API 在博客前端展示页面/文章浏览量。'
-image: https://row-blog.olinl.com/post-img/umami-views/cover.webp
+image: https://img.olinl.com/file/post-img/umami-views/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, Umami, 统计]
 draft: false

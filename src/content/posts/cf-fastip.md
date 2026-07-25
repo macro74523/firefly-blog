@@ -4,7 +4,7 @@ slug: cf-fastip
 published: 2026-06-13 19:54:38
 updated: 2026-06-21 16:57:55
 description: 通过 Worker 反代为网站做 IP 分流优选，提高国内访问速度与可用性
-image: https://row-blog.olinl.com/post-img/cf-fastip/0001.webp
+image: https://img.olinl.com/file/post-img/cf-fastip/0001.webp
 category: 技术
 tags:
   - CloudFlare
@@ -13,9 +13,9 @@ comment: false
 ---
 
 优选前：
-![优选前 ITDOG IP数量](https://row-blog.olinl.com/post-img/cf-fastip/0002.webp)
+![优选前 ITDOG IP数量](https://img.olinl.com/file/post-img/cf-fastip/0002.webp)
 优选后：
-![优选后 ITDOG IP数量](https://row-blog.olinl.com/post-img/cf-fastip/0001.webp)
+![优选后 ITDOG IP数量](https://img.olinl.com/file/post-img/cf-fastip/0001.webp)
 
 ## 优选原理
 
@@ -51,7 +51,7 @@ comment: false
 
 随后在你的域名 DNS 记录里添加一条 CNAME 记录，**不要开启小黄云**。
 
-![添加CNAME记录](https://row-blog.olinl.com/post-img/cf-fastip/0003.webp)
+![添加CNAME记录](https://img.olinl.com/file/post-img/cf-fastip/0003.webp)
 
 之后想给其他站点也用这个优选，把站点 CNAME 解析到上面配置好的 `123.cf.090227.xyz` 即可。
 
@@ -63,11 +63,11 @@ comment: false
 
 接下来配置 Worker 路由：选择你的域名，路由模式填写 `你的域名/*`（例如 `cf-blog.7o.nz/*`）。
 
-![配置Worker路由](https://row-blog.olinl.com/post-img/cf-fastip/0004.webp)
+![配置Worker路由](https://img.olinl.com/file/post-img/cf-fastip/0004.webp)
 
 最后写一条 DNS 解析到上面配置的优选域名即可。
 
-![配置域名优选](https://row-blog.olinl.com/post-img/cf-fastip/0005.webp)
+![配置域名优选](https://img.olinl.com/file/post-img/cf-fastip/0005.webp)
 
 ### Worker 路由反代全球并优选
 
@@ -79,7 +79,7 @@ comment: false
 
 详情见下图：
 
-![创建CloudFlare Worker 并修改代码](https://row-blog.olinl.com/post-img/cf-fastip/0006.webp)
+![创建CloudFlare Worker 并修改代码](https://img.olinl.com/file/post-img/cf-fastip/0006.webp)
 
 ```javascript
 
@@ -181,7 +181,7 @@ function getProxyPrefix(hostname) {
 
 1. 首先添加一个路由，域名选择你cf的域名，路由填写你的外域域名+/*
 
-![添加外域路由](https://row-blog.olinl.com/post-img/cf-fastip/0007.webp)
+![添加外域路由](https://img.olinl.com/file/post-img/cf-fastip/0007.webp)
 
 2. 然后我们到cf域名所属的`SSL/TLS` `自定义主机名`  
 添加一个回退源，这个回退源一定要开启小黄云的才可以！
@@ -193,7 +193,7 @@ function getProxyPrefix(hostname) {
 
 4. 我们将外域的域名 CNAME到你的Cloudflare 优选域名去，也就是下图这样
 
-![外域域名CNAME到cf cdn域名去](https://row-blog.olinl.com/post-img/cf-fastip/0008.webp)
+![外域域名CNAME到cf cdn域名去](https://img.olinl.com/file/post-img/cf-fastip/0008.webp)
 
 PS：此方法同样适用于子域
 
@@ -203,14 +203,14 @@ PS：此方法同样适用于子域
 
 1. 我们先配置2个Tunnel，指向同一个服务，一个是作为SaaS 源服务器使用，一个是最终访问优选过的站点。如下图：
 
-![创建Tunnel](https://row-blog.olinl.com/post-img/cf-fastip/0009.webp)
+![创建Tunnel](https://img.olinl.com/file/post-img/cf-fastip/0009.webp)
 
 上图中 `1.oi.cd` 作为SaaS源服务器使用，`2.oi.cd` 作为优选过的站点。
 
 2. 我们先将`2.oi.cd` 这个DNS记录删掉，注意！！ 这是需要到DNS记录里面删除，不要删除Tunnel！  
 然后我们添加一条`2.oi.cd`的优选解析，最终如下图
 
-![配置优选域名](https://row-blog.olinl.com/post-img/cf-fastip/0010.webp)
+![配置优选域名](https://img.olinl.com/file/post-img/cf-fastip/0010.webp)
 
 3. 下面我们点击到 SSL/TLS -> 自定义主机名（如果没有配置回退源，需要配置一个开启了小黄云的域名，再进行下面的操作）
 添加一条自定义主机名配置
@@ -221,7 +221,7 @@ PS：此方法同样适用于子域
 
 保存后如下：
 
-![](https://row-blog.olinl.com/post-img/cf-fastip/0011.webp)
+![](https://img.olinl.com/file/post-img/cf-fastip/0011.webp)
 
 4. 随后我们访问2.oi.cd即可实现优选。
 

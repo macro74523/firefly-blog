@@ -4,7 +4,7 @@ slug: 'schedule-progress'
 published: 2026-07-21 19:41:29
 updated: 2026-07-22 19:30:00
 description: '年/月/周进度条，搭配节假日倒计时，帮你感知时间的流逝。'
-image: https://row-blog.olinl.com/post-img/schedule-progress/cover.webp
+image: https://img.olinl.com/file/post-img/schedule-progress/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 小部件]
 draft: false
@@ -15,7 +15,7 @@ pinned: false
 
 ## 一、功能概览
 
-![时间进度条组件](https://row-blog.olinl.com/post-img/schedule-progress/0001.webp)
+![时间进度条组件](https://img.olinl.com/file/post-img/schedule-progress/0001.webp)
 
 三个维度的进度条：
 - **本年进度** — 今年已经过去了多少天

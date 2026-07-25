@@ -4,7 +4,7 @@ slug: 'memos-dynamic'
 published: 2026-07-19 15:03:19
 updated: 2026-07-22 19:30:00
 description: '将 Memos 作为动态数据源，支持标签过滤和可见性控制，替代本地 content/dynamic/。'
-image: https://row-blog.olinl.com/post-img/memos-dynamic/cover.webp
+image: https://img.olinl.com/file/post-img/memos-dynamic/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, Memos, 动态]
 draft: false
@@ -13,7 +13,7 @@ draft: false
 
 之前在博客中维护动态内容需要手动编辑本地 Markdown 文件，比较繁琐。如果能直接用自建的 Memos 服务作为数据源，发布动态后自动同步到博客，体验会好很多。
 
-![动态页完整效果](https://row-blog.olinl.com/post-img/memos-dynamic/0001.webp)
+![动态页完整效果](https://img.olinl.com/file/post-img/memos-dynamic/0001.webp)
 ## 一、设计思路
 
 用 Memos 替代本地 `content/dynamic/` 集合，通过 API 代理层获取数据：

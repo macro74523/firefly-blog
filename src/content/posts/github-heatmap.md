@@ -4,7 +4,7 @@ slug: 'github-heatmap'
 published: 2026-07-04 13:10:29
 updated: 2026-07-22 19:30:00
 description: '在侧边栏展示近 100 天的 GitHub 贡献数据，无需 Token 即可拉取。'
-image: https://row-blog.olinl.com/post-img/github-heatmap/cover.webp
+image: https://img.olinl.com/file/post-img/github-heatmap/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, GitHub, 小部件]
 draft: false
@@ -13,7 +13,7 @@ draft: false
 
 GitHub 贡献热力图是很多开发者主页的标配，在博客侧边栏放一个，既能展示你的活跃度，也让访客更直观地了解你的开源参与情况。
 
-![GitHub 热力图效果](https://row-blog.olinl.com/post-img/github-heatmap/0001.webp)
+![GitHub 热力图效果](https://img.olinl.com/file/post-img/github-heatmap/0001.webp)
 ## 一、组件文件
 
 组件源码位于 `src/components/widget/GitHubHeatmap.astro`，是一个 Astro 服务端渲染组件 + 客户端交互脚本。

@@ -4,7 +4,7 @@ slug: 'shortlink'
 published: 2026-07-04 17:30:50
 updated: 2026-07-22 19:30:00
 description: '基于 Astro 内置 redirects 的轻量短链系统，让访客可以轻松记住你的链接。'
-image: https://row-blog.olinl.com/post-img/shortlink/cover.webp
+image: https://img.olinl.com/file/post-img/shortlink/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, Astro]
 draft: false

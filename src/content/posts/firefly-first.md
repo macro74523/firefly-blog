@@ -4,7 +4,7 @@ slug: firefly-first
 published: 2026-06-18 18:45:13
 updated: 2026-06-12 15:46:00
 description: 手把手带你搭建一个静态的博客网站。
-image: https://row-blog.olinl.com/post-img/firefly-first/firefly-first-cover.webp
+image: https://img.olinl.com/file/post-img/firefly-first/firefly-first-cover.webp
 category: 部署
 tags: [搭建, Cloudflare]
 draft: false
@@ -56,7 +56,7 @@ draft: false
 
 或者打开下载页面手动下载：https://nodejs.org/zh-cn/download
 
-![下载Node.JS](https://row-blog.olinl.com/post-img/firefly-first/0001.webp)
+![下载Node.JS](https://img.olinl.com/file/post-img/firefly-first/0001.webp)
 
 下载完成后进行安装，默认选项直接下一步即可。随后我们打开`终端`窗口，执行以下命令验证版本号是否正确
 
@@ -65,7 +65,7 @@ node -v
 npm -v
 ```
 
-![验证版本号](https://row-blog.olinl.com/post-img/firefly-first/0002.webp)
+![验证版本号](https://img.olinl.com/file/post-img/firefly-first/0002.webp)
 
 **注意**：安装后重启终端，无效则重启电脑。
 
@@ -78,20 +78,20 @@ npm install -g pnpm
 pnpm -v
 ```
 
-![安装并验证pnpm](https://row-blog.olinl.com/post-img/firefly-first/0003.webp)
+![安装并验证pnpm](https://img.olinl.com/file/post-img/firefly-first/0003.webp)
 
 #### 安装 Git
 
 访问 [下载页面](https://git-scm.cn/install/windows)，下载最新版并默认安装
 
-![下载Git](https://row-blog.olinl.com/post-img/firefly-first/0004.webp)
+![下载Git](https://img.olinl.com/file/post-img/firefly-first/0004.webp)
 
 #### 安装Github Desktop
 
 
 点击访问：[下载页面](https://desktop.github.com/download/) 点击进行下载
 
-![绑定账号](https://row-blog.olinl.com/post-img/firefly-first/0005.webp)
+![绑定账号](https://img.olinl.com/file/post-img/firefly-first/0005.webp)
 
 
 #### 安装VS Code
@@ -100,7 +100,7 @@ pnpm -v
 
 点击访问：[下载页面](https://code.visualstudio.com/Download) 选择您的系统进行下载
 
-![下载VSCode](https://row-blog.olinl.com/post-img/firefly-first/0006.webp)
+![下载VSCode](https://img.olinl.com/file/post-img/firefly-first/0006.webp)
 
 随后进行安装即可。
 
@@ -112,11 +112,11 @@ pnpm -v
 
 点击右上角的「Fork」按钮。
 
-![Fork仓库](https://row-blog.olinl.com/post-img/firefly-first/0007.webp)
+![Fork仓库](https://img.olinl.com/file/post-img/firefly-first/0007.webp)
 
 填写信息后，点击「Create Fork」后，会自动跳转到你自己的仓库。
 
-![填写信息后Fork](https://row-blog.olinl.com/post-img/firefly-first/0008.webp)
+![填写信息后Fork](https://img.olinl.com/file/post-img/firefly-first/0008.webp)
 
 ## 三、克隆仓库并修改配置
 
@@ -129,7 +129,7 @@ pnpm -v
 我们打开GitHub Desktop 搜索Firefly 点击下方的Clone 按钮 拉取代码  
 然后选择一个本地的目录存储。
 
-![选择项目 拉取代码](https://row-blog.olinl.com/post-img/firefly-first/0009.webp)
+![选择项目 拉取代码](https://img.olinl.com/file/post-img/firefly-first/0009.webp)
 
 然后右键项目目录，通过code打开。
 
@@ -138,7 +138,7 @@ pnpm -v
 ```bash
 pnpm install
 ```
-![打开终端](https://row-blog.olinl.com/post-img/firefly-first/0010.webp)
+![打开终端](https://img.olinl.com/file/post-img/firefly-first/0010.webp)
 
 
 **启动本地预览**
@@ -178,7 +178,7 @@ pnpm dev
 
 我们在GitHub Desktop 勾选需要提交的文件，在下面输入提交消息，然后点击`commit` 按钮 然后点击上方的`Psuh origin`
 
-![客户端提交代码](https://row-blog.olinl.com/post-img/firefly-first/0011.webp)
+![客户端提交代码](https://img.olinl.com/file/post-img/firefly-first/0011.webp)
 
 
 2、使用VS Code
@@ -294,7 +294,7 @@ git push
 
 **首先我们创建一条这样的记录**
 
-![创建优选域名](https://row-blog.olinl.com/post-img/firefly-first/0012.webp)
+![创建优选域名](https://img.olinl.com/file/post-img/firefly-first/0012.webp)
 
 - 名称：可自定义，
 - 类型：CNAME
@@ -311,7 +311,7 @@ git push
 
 到Worker 里面，点击域，点击添加路由
 
-![创建Worker路由](https://row-blog.olinl.com/post-img/firefly-first/0013.webp)
+![创建Worker路由](https://img.olinl.com/file/post-img/firefly-first/0013.webp)
 
 然后选择你的域名，随后填写最终访问的域名+/*
 
@@ -321,7 +321,7 @@ git push
 
 到域名的DNS记录里面，添加一条记录
 
-![添加Worker的DNS解析记录](https://row-blog.olinl.com/post-img/firefly-first/0014.webp)
+![添加Worker的DNS解析记录](https://img.olinl.com/file/post-img/firefly-first/0014.webp)
 
 - 名称：Worker的路由前缀，如果你填写是：blog.example.com/* 那么就在这里填写 blog
 - 类型:CNAME
@@ -331,7 +331,7 @@ git push
 
 最后，我们来检查一下：
 
-![最终配置](https://row-blog.olinl.com/post-img/firefly-first/0015.webp)
+![最终配置](https://img.olinl.com/file/post-img/firefly-first/0015.webp)
 
 1. 优选域名配置，内容必须是*.cf.090227.xyz 格式，且关闭小黄云
 2. Worker 路由，必须是 <前缀>.<你的域名>/* 这个格式
@@ -364,7 +364,7 @@ git push
 
 在`域名管理`添加我们已备案的域名，然后根据CNAME去我们的域名托管商配置CNAME记录，如下图！
 
-![配置域名解析](https://row-blog.olinl.com/post-img/firefly-first/0016.webp)
+![配置域名解析](https://img.olinl.com/file/post-img/firefly-first/0016.webp)
 
 - 主机记录填写你域名的前缀
 - 类型选择CNAME

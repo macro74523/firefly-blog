@@ -4,7 +4,7 @@ slug: 'time-greeting'
 published: 2026-07-04 13:09:20
 updated: 2026-07-22 19:30:00
 description: '侧边栏实时时钟组件，根据时段自动切换问候语和背景图。'
-image: https://row-blog.olinl.com/post-img/time-greeting/cover.webp
+image: https://img.olinl.com/file/post-img/time-greeting/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 小部件]
 draft: false
@@ -15,7 +15,7 @@ pinned: false
 
 ## 一、功能概览
 
-![时段问候组件](https://row-blog.olinl.com/post-img/time-greeting/0001.webp)
+![时段问候组件](https://img.olinl.com/file/post-img/time-greeting/0001.webp)
 
 主要能力：
 - 实时数字时钟，每分钟自动更新

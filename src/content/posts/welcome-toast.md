@@ -4,7 +4,7 @@ slug: 'welcome-toast'
 published: 2026-07-04 15:51:31
 updated: 2026-07-22 19:30:00
 description: '首次访问时右下角弹出欢迎提示，显示访客所在地，5 秒后自动关闭。'
-image: https://row-blog.olinl.com/post-img/welcome-toast/cover.webp
+image: https://img.olinl.com/file/post-img/welcome-toast/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 交互]
 draft: false
@@ -15,7 +15,7 @@ pinned: false
 
 ## 一、功能概览
 
-![欢迎弹框的效果](https://row-blog.olinl.com/post-img/welcome-toast/0001.webp)
+![欢迎弹框的效果](https://img.olinl.com/file/post-img/welcome-toast/0001.webp)
 
 核心流程：
 1. 检查 `sessionStorage` 中是否已有访问标记

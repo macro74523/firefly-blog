@@ -4,7 +4,7 @@ slug: 'custom-cursor'
 published: 2026-07-21 19:41:32
 updated: 2026-07-22 19:30:00
 description: '使用 .cur 文件替换默认鼠标样式，区分默认态和可点击元素。'
-image: https://row-blog.olinl.com/post-img/custom-cursor/cover.webp
+image: https://img.olinl.com/file/post-img/custom-cursor/cover.webp
 category: Firefly
 tags: [Firefly, 博客, 二开, 样式]
 draft: false
@@ -48,8 +48,8 @@ input, textarea, [contenteditable="true"] {
 ```
 
 <!-- 截图占位：可点击/非可点击元素的指针对比截图 -->
-![可点击元素的指针](https://row-blog.olinl.com/post-img/custom-cursor/0001.webp)
-![非可点击元素的指针](https://row-blog.olinl.com/post-img/custom-cursor/0002.webp)
+![可点击元素的指针](https://img.olinl.com/file/post-img/custom-cursor/0001.webp)
+![非可点击元素的指针](https://img.olinl.com/file/post-img/custom-cursor/0002.webp)
 ### 鼠标文件
 
 两个 `.cur` 文件放在 `public/mouse/`：
