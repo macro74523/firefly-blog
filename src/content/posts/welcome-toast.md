@@ -139,7 +139,7 @@ import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
 // ...
     <!-- Sakura Effect -->
     <SakuraEffect />
-    <WelcomeToast client:load />
+    <WelcomeToast />
     <!-- Fancybox Manager -->
 ```
 
