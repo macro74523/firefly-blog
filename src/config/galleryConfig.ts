@@ -42,14 +42,13 @@ export const galleryConfig: GalleryConfig = {
 			date: "2026-02-12",
 			tags: ["表情包"],
 		},
-			{
+		{
 			id: "douyin-xiaqi",
 			name: "夏祈^",
 			description: "@夏祈^ @肉圆子 @肉团子",
 			location: "抖音",
 			date: "2026-03-28",
 		},
-
 	],
 
 	// 瀑布流最小列宽(px)，浏览器根据容器宽度自动计算列数，默认 240
