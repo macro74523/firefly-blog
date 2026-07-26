@@ -11,7 +11,7 @@ Firefly is a feature-rich static blog theme built on **Astro 6** with **Svelte 5
 | Command | Purpose |
 |---|---|
 | `pnpm dev` | Dev server at `localhost:4321` |
-| `pnpm build` | Production build (LQIPs → Astro build → Pagefind indexing) |
+| `pnpm build` | Production build (icons → LQIPs → Astro build → Pagefind indexing) |
 | `pnpm preview` | Preview production build |
 | `pnpm check` | `astro check` for type/error checking |
 | `pnpm type-check` | `tsc --noEmit --isolatedDeclarations` |
@@ -55,7 +55,7 @@ Defined in `src/content.config.ts`:
 - `src/i18n/` — translation keys in `i18nKey.ts`, language files in `languages/*.ts`, lookup via `translation.ts`
 - `src/utils/` — content sorting, crypto (encrypted posts), date formatting, image processing/LQIP, TOC generation
 - `src/pages/` — Astro file-based routing
-- `scripts/` — build-time utilities (`generate-lqips.ts`, `new-post.js`)
+- `scripts/` — build-time utilities (`generate-icons.js`, `generate-lqips.ts`, `new-post.js`)
 
 ### Path Aliases (tsconfig.json)
 
@@ -69,9 +69,9 @@ Defined in `src/content.config.ts`:
 
 ## Build Pipeline
 
-Multi-step: `scripts/generate-lqips.ts` → `astro build` → `pagefind --site dist`
+Multi-step: `scripts/generate-icons.js` → `scripts/generate-lqips.ts` → `astro build` → `pagefind --site dist`
 
-Icons are stored in `src/constants/icons-data.json` and loaded via `@iconify/svelte/offline` at runtime. LQIP data is generated into `src/constants/` and committed. Regenerate with `pnpm lqips`.
+Icons/LQIP data are generated into `src/constants/` and committed. Regenerate with `pnpm icons` or `pnpm lqips`.
 
 ## Deployment
 

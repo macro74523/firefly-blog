@@ -7,6 +7,9 @@ export const dynamicConfig: DynamicConfig = {
 	// 页面描述文本，如果留空则使用 i18n 中的翻译
 	description: "",
 
+	// 动态头像和名称的跳转地址，支持站内路径或完整 URL
+	profileUrl: "/about/",
+
 	// 封面配置（微信朋友圈风格）
 	cover: {
 		enable: true,

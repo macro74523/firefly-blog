@@ -25,7 +25,7 @@ import remarkAdmonitionToBlockquoteCallout from "remark-admonition-to-blockquote
 import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
-import { expressiveCodeConfig, fontConfig, fontsList, plantumlConfig, redirectsConfig, siteConfig } from "./src/config";
+import { expressiveCodeConfig, fontConfig, fontsList, mermaidConfig, plantumlConfig, redirectsConfig, siteConfig } from "./src/config";
 import { collectUsedFontCssVars } from "./src/utils/fontHelper";
 import I18nKey from "./src/i18n/i18nKey";
 import { i18n } from "./src/i18n/translation";
@@ -42,6 +42,9 @@ import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkPlantuml } from "./src/plugins/remark-plantuml.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import { remarkWikiLink } from "./src/plugins/remark-wiki-link.js";
+import { rehypeDiagramPanZoom } from "./src/plugins/rehype-diagram-panzoom.mjs";
+import rehypeImageReferrerPolicy from "./src/plugins/rehype-image-referrerpolicy.mjs";
 
 if (process.env.NODE_ENV === "development") {
 	setMaxListeners(20);
@@ -249,6 +252,7 @@ export default defineConfig({
 					: []),
 				remarkMath,
 				remarkReadingTime,
+				remarkWikiLink,
 				remarkImageGrid,
 				remarkExcerpt,
 				remarkDirective,
@@ -261,9 +265,14 @@ export default defineConfig({
 				[rehypeKatex, { katex }],
 				[rehypeCallouts, { theme: siteConfig.post.rehypeCallouts.theme }],
 				rehypeSlug,
-				rehypeMermaid,
+				[rehypeMermaid, mermaidConfig],
 				rehypePlantuml,
+				rehypeDiagramPanZoom,
 				rehypeFigure,
+				[
+					rehypeImageReferrerPolicy,
+					{ domains: siteConfig.imageOptimization?.noReferrerDomains || [] },
+				],
 				[rehypeExternalLinks, { siteUrl: siteConfig.site_url }],
 				[rehypeEmailProtection, { method: "base64" }], // 邮箱保护插件，支持 'base64' 或 'rot13'
 				[
