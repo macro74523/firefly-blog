@@ -1,0 +1,57 @@
+name: FTP 部署
+
+on:
+  # push:
+  #   branches: [ master ]
+  workflow_dispatch:
+
+concurrency:
+  group: "ftp-deploy"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 检出代码
+        uses: actions/checkout@v4
+
+      - name: ⚡ 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 📦 设置 pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+          run_install: false
+
+      - name: 🗂️ 获取 pnpm 缓存目录
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+
+      - name: 💾 缓存 pnpm 依赖
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🔗 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔨 构建站点
+        run: pnpm run build
+
+      - name: 📦 打包并上传压缩包
+        run: |
+          tar -czf dist.tar.gz -C dist .
+          curl -T dist.tar.gz \
+            --connect-timeout 30 \
+            --retry 3 \
+            --retry-delay 5 \
+            ftp://${{ secrets.FTP_HOST }}:${{ secrets.FTP_PORT }}/dist.tar.gz \
+            --insecure \
+            --user ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}
