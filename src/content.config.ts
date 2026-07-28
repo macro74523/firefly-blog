@@ -41,6 +41,7 @@ const dynamicCollection = defineCollection({
 	schema: z.object({
 		published: z.date(),
 		pinned: z.boolean().optional().default(false),
+		location: z.string().optional().default(""),
 	}),
 });
 
