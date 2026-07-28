@@ -90,7 +90,9 @@ export type BackgroundWallpaperConfig = {
 	};
 	// 全屏透明覆盖模式特有配置
 	overlay?: {
-		switchable?: boolean | { opacity?: boolean; blur?: boolean; cardOpacity?: boolean; }; // 是否允许用户通过控制面板调整全屏透明模式参数
+		switchable?:
+			| boolean
+			| { opacity?: boolean; blur?: boolean; cardOpacity?: boolean }; // 是否允许用户通过控制面板调整全屏透明模式参数
 		zIndex?: number; // 层级，确保壁纸在合适的层级显示
 		opacity?: number; // 壁纸透明度，0-1之间
 		blur?: number; // 背景模糊程度，单位px
