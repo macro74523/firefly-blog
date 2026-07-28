@@ -3,7 +3,7 @@ title: GitHub Actions FTP 自动部署教程
 published: 2026-07-28
 updated: 2026-07-28
 description: 从踩坑到实战，教你用 GitHub Actions 自动构建博客并部署到自己的 FTP 服务器。
-image: ''
+image: https://img.olinl.com/file/post-img/cover/lkqasBlA.webp
 category: 部署
 tags:
   - CI/CD
