@@ -41,7 +41,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	 */
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
-		desktop: "https://pic.olinl.com/random/h",
+		desktop: "https://jpg.macro.wang/4f5d1957e91016781c9e729b40bb3e10.webp",
 		// desktop: [
 		// 	"assets/images/DesktopWallpaper/d1.avif",
 		// 	"assets/images/DesktopWallpaper/d2.avif",
@@ -51,7 +51,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 	"assets/images/DesktopWallpaper/d6.avif",
 		// ],
 		// 移动背景图片（支持单张或多张随机）
-		mobile: "https://pic.olinl.com/random/v",
+		mobile: "https://jpg.macro.wang/4f5d1957e91016781c9e729b40bb3e10.webp",
 		// mobile: [
 		// 	"assets/images/MobileWallpaper/m1.avif",
 		// 	"assets/images/MobileWallpaper/m2.avif",
@@ -81,7 +81,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "Olinl Blog",
+			title: "MACRO",
 			// 主页横幅主标题字体大小
 			titleSize: "4.5rem",
 			// 主页横幅副标题
@@ -160,7 +160,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 图片位置
 		// 支持所有CSS object-position值，如: 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'..
 		// 如果不知道怎么配置百分百之类的配置，推荐直接使用：'center'居中，'top'顶部居中，'bottom' 底部居中，'left'左侧居中，'right'右侧居中
-		position: "0% 20%",
+		position: "0% 80%",
 	},
 	// 全屏透明覆盖模式特有配置
 	overlay: {

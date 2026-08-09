@@ -6,13 +6,13 @@ export const profileConfig: ProfileConfig = {
 	// 1. public 目录（以 "/" 开头，不优化）："/assets/images/avatar.webp"
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
-	avatar: "/assets/images/avatar.webp",
+	avatar: "https://jpg.macro.wang/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-28_134011_016.jpg",
 
 	// 名字
-	name: "顾拾柒",
+	name: "麦克罗",
 
 	// 个人签名
-	bio: "The world is big, you have to go and see.",
+	bio: "还没想好个人签名",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
@@ -24,19 +24,19 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "QQ",
 			icon: "fa7-brands:qq",
-			url: "https://qm.qq.com/q/fFoJQDz5rG",
+			url: " ",
 			showName: false,
 		},
 		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/olinll",
+			url: " ",
 			showName: false,
 		},
 		{
 			name: "Email",
 			icon: "fa7-solid:envelope",
-			url: "mailto:olinl@foxmail.com",
+			url: "mailto: ",
 			showName: false,
 		},
 		{

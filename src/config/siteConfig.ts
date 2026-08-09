@@ -6,13 +6,13 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Olinl Blog",
+	title: "MACRO",
 
 	// 站点副标题
-	subtitle: "分享、实践、学习",
+	subtitle: "有股喜欢随意折腾的劲~",
 
 	// 站点 URL
-	site_url: "https://blog.olinl.com",
+	site_url: "https://MACRO.wang",
 
 	// 站点描述
 	description:
@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/favicon/favicon.ico",
+			src: "https://jpg.macro.wang/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-28_134011_016.jpg",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -74,12 +74,12 @@ export const siteConfig: SiteConfig = {
 		// 3. 本地图片（src目录，自动优化但会增加构建时间）: { type: "image", value: "assets/images/logo.webp", alt: "Logo" }
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
-			type: "image",
-			value: "assets/images/logo.webp",
-			alt: "Olinl Blog Logo",
+			type: "url",
+			value: "https://jpg.macro.wang/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-28_134011_016.jpg",
+			alt: "MACRO Logo",
 		},
 		// 导航栏标题
-		title: "Olinl Blog",
+		title: "MACRO",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
 		widthFull: false,
 		// 导航菜单对齐方式，left：左对齐，center：居中
@@ -220,7 +220,7 @@ export const siteConfig: SiteConfig = {
 		// Bilibili 配置
 		bilibili: {
 			// 你的 Bilibili 用户 UID
-			uid: "38932988",
+			uid: "542054505",
 		},
 		// TMDB 配置（可选，需要翻墙）
 		// tmdb: {

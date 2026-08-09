@@ -159,10 +159,20 @@ const className = Astro.props.class;
     websiteId: string;
   };
 
+  type StatsMetric = { value?: number; change?: number } | number;
   type StatsResponse = {
-    pageviews?: number;
-    visitors?: number;
+    pageviews?: StatsMetric;
+    visitors?: StatsMetric;
+    visits?: StatsMetric;
+    bounces?: StatsMetric;
+    totaltime?: StatsMetric;
   };
+
+  function toNumber(metric: StatsMetric | undefined): number {
+    if (metric == null) return 0;
+    if (typeof metric === "number") return metric;
+    return typeof metric.value === "number" ? metric.value : 0;
+  }
 
   function formatNumber(n: number): string {
     return n.toLocaleString("en-US");
@@ -250,8 +260,8 @@ const className = Astro.props.class;
     try {
       const share = await fetchShareData(apiBase, shareId);
       const stats = await fetchStats(apiBase, share);
-      visitors = stats.visitors ?? 0;
-      pageviews = stats.pageviews ?? 0;
+      visitors = toNumber(stats.visitors);
+      pageviews = toNumber(stats.pageviews);
       ok = true;
     } catch {
       ok = false;

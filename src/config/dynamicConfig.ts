@@ -15,7 +15,7 @@ export const dynamicConfig: DynamicConfig = {
 		enable: true,
 		image:
 			"https://ph.0824.uk/file/博客横屏封面/1780635498430_mmexport1774845895097.jpg",
-		greeting: "Hello 顾拾柒",
+		greeting: "Hello MACRO",
 	},
 
 	// 是否为每条动态启用评论，需要先在 commentConfig.ts 启用评论系统
@@ -38,7 +38,7 @@ export const dynamicConfig: DynamicConfig = {
 		enable: false,
 
 		// Memos 实例地址
-		apiUrl: "https://note.olinl.com",
+		apiUrl: "https://MACRO.wang",
 
 		// Memos 用户标识，如 "users/你的memos用户名"，用于过滤指定用户的动态
 		parent: "",

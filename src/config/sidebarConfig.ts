@@ -265,7 +265,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：用户资料组件
 			type: "profile",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -273,7 +273,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：公告组件
 			type: "announcement",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -289,7 +289,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：分类组件
 			type: "categories",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 			// 组件专属配置
@@ -338,7 +338,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：时间进度组件
 			type: "schedule",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -346,7 +346,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：今日一言
 			type: "quoteOfTheDay",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -354,7 +354,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：站点信息组件
 			type: "siteInfo",
 			// 是否启用该组件
-			enable: true,
+			enable: false,
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 			// 组件专属配置

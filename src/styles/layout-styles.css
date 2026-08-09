@@ -296,6 +296,11 @@ html.is-page-transitioning .banner-home-text-overlay {
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
+
+    /* 移动端主图显示居中部分，覆盖 banner.position 的内联 object-position */
+    #banner-images-container img {
+        object-position: center !important;
+    }
     
     .mobile-hide-banner {
         transform: translateY(-100%) translateZ(0) !important;

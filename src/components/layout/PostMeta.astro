@@ -429,7 +429,7 @@ const umamiApiBase =
       share.websiteId,
     );
     if (cached) return cached;
-    const url = `${apiBase}/api/websites/${share.websiteId}/metrics?startAt=0&endAt=${Date.now()}&type=path&limit=1000`;
+    const url = `${apiBase}/api/websites/${share.websiteId}/metrics?startAt=0&endAt=${Date.now()}&type=url&limit=1000`;
     const resp = await fetch(url, {
       headers: {
         "x-umami-share-token": share.token,

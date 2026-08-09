@@ -8,15 +8,15 @@ export const analyticsConfig: AnalyticsConfig = {
 	// Umami 统计配置
 	umamiAnalytics: {
 		// Umami Website ID
-		websiteId: "71de627e-31d7-4e39-b44a-ad899c628a5b",
+		websiteId: "9c2dab11-97da-492f-aee4-f86c948b83e6",
 		// Umami JS地址，支持使用自建
-		scriptUrl: "https://umami.olinl.com/olinl_u.js",
+		scriptUrl: "https://umami777.macro.wang/script.js",
 		// Umami 会话回放脚本地址，支持使用自建
-		replaysScriptUrl: "https://umami.olinl.com/recorder.js",
+		replaysScriptUrl: "https://umami777.macro.wang/replays.js",
 		// Umami 公开分享 ID，用于前端获取浏览统计数据
-		shareId: "Z8ZeG4A7PW3FEp4S",
+		shareId: "4OHBvC0kOKWj0DT3",
 		// Umami API 基础地址，默认从 scriptUrl 推导
-		shareApiBase: "https://umami.olinl.com",
+		shareApiBase: "https://umami777.macro.wang",
 		// 是否追踪出站链接
 		trackOutboundLinks: true,
 		// 是否收集浏览器性能指标
