@@ -9,8 +9,8 @@ export interface Props {
 
 const {
 	text,
-	speed = 100,
-	deleteSpeed = 50,
+	speed = 600,
+	deleteSpeed = 600,
 	pauseTime = 2000,
 	class: className = "",
 } = Astro.props;
@@ -29,11 +29,9 @@ const textData = Array.isArray(text) ? JSON.stringify(text) : text;
     private element: HTMLElement;
     private texts: string[];
     private currentTextIndex: number = 0;
-    private speed: number;
-    private deleteSpeed: number;
+    private fadeInDuration: number;
+    private fadeOutDuration: number;
     private pauseTime: number;
-    private currentIndex: number = 0;
-    private isDeleting: boolean = false;
     private timeoutId: number | null = null;
 
     constructor(element: HTMLElement) {
@@ -48,84 +46,47 @@ const textData = Array.isArray(text) ? JSON.stringify(text) : text;
         this.texts = [textData];
       }
 
-      this.speed = parseInt(element.dataset.speed || "100");
-      this.deleteSpeed = parseInt(element.dataset.deleteSpeed || "50");
+      this.fadeInDuration = parseInt(element.dataset.speed || "600");
+      this.fadeOutDuration = parseInt(element.dataset.deleteSpeed || "600");
       this.pauseTime = parseInt(element.dataset.pauseTime || "2000");
 
-      // 如果有多条文本且未启用打字机效果，随机显示一条
-      if (this.texts.length > 1 && !this.isTypewriterEnabled()) {
-        this.showRandomText();
-      } else {
-        this.start();
-      }
-    }
-
-    private isTypewriterEnabled(): boolean {
-      // 检查是否有打字机相关的数据属性
-      return (
-        this.element.dataset.speed !== undefined ||
-        this.element.dataset.deleteSpeed !== undefined ||
-        this.element.dataset.pauseTime !== undefined
-      );
-    }
-
-    private showRandomText() {
-      const randomIndex = Math.floor(Math.random() * this.texts.length);
-      this.element.textContent = this.texts[randomIndex];
+      this.start();
     }
 
     private start() {
       if (this.texts.length === 0) return;
-      this.type();
+      this.showText();
     }
 
     private getCurrentText(): string {
       return this.texts[this.currentTextIndex] || "";
     }
 
-    private type() {
+    private showText() {
       const currentText = this.getCurrentText();
-      const segments = this.segmentText(currentText);
 
-      if (this.isDeleting) {
-        // 删除字符
-        if (this.currentIndex > 0) {
-          this.currentIndex--;
-          this.element.textContent = segments
-            .slice(0, this.currentIndex)
-            .join("");
+      // 先设为透明，再设置文字，再触发淡入
+      this.element.style.opacity = "0";
+      this.element.textContent = currentText;
 
-          this.timeoutId = window.setTimeout(
-            () => this.type(),
-            this.deleteSpeed
-          );
-        } else {
-          // 删除完成，切换到下一条文本
-          this.isDeleting = false;
-          this.currentTextIndex =
-            (this.currentTextIndex + 1) % this.texts.length;
-          this.timeoutId = window.setTimeout(() => this.type(), this.speed);
-        }
-      } else {
-        if (this.currentIndex < segments.length) {
-          this.currentIndex++;
-          this.element.textContent = segments
-            .slice(0, this.currentIndex)
-            .join("");
+      // 触发重排后再淡入，确保 transition 生效
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.element.style.opacity = "1";
+        });
+      });
 
-          this.timeoutId = window.setTimeout(() => this.type(), this.speed);
-        } else {
-          // 打字完成，暂停后开始删除（如果有多条文本）
-          if (this.texts.length > 1) {
-            this.isDeleting = true;
-            this.timeoutId = window.setTimeout(
-              () => this.type(),
-              this.pauseTime
-            );
-          }
-          // 如果只有一条文本，保持显示不删除
-        }
-      }
+      // 如果只有一条文本，淡入后保持显示
+      if (this.texts.length <= 1) return;
+
+      // 停留后淡出，切换到下一条
+      this.timeoutId = window.setTimeout(() => {
+        this.element.style.opacity = "0";
+        this.timeoutId = window.setTimeout(() => {
+          this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length;
+          this.showText();
+        }, this.fadeOutDuration);
+      }, this.pauseTime + this.fadeInDuration);
     }
 
     public destroy() {
@@ -133,12 +94,6 @@ const textData = Array.isArray(text) ? JSON.stringify(text) : text;
         clearTimeout(this.timeoutId);
       }
     }
-
-    private segmentText(text: string): string[] {
-      const segmenter = new Intl.Segmenter(undefined, { granularity: "grapheme" });
-      return Array.from(segmenter.segment(text), s => s.segment);
-    }
-
   }
 
   function initTypewriterElements() {
@@ -149,6 +104,7 @@ const textData = Array.isArray(text) ? JSON.stringify(text) : text;
         el.__typewriterInstance.destroy();
       }
       el.textContent = "";
+      el.style.opacity = "0";
       el.__typewriterInstance = new TypewriterEffect(el);
     });
   }
@@ -180,23 +136,6 @@ const textData = Array.isArray(text) ? JSON.stringify(text) : text;
 
 <style>
   .typewriter {
-    position: relative;
-  }
-
-  .typewriter::after {
-    content: "|";
-    animation: blink 1s infinite;
-    margin-left: 2px;
-  }
-
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
+    transition: opacity 0.6s ease-in-out;
   }
 </style>

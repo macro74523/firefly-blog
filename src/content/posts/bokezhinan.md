@@ -1,14 +1,19 @@
-﻿---
+---
 title: 博客使用指南
 slug: blog-guide
-published: 2026-08-09 00:00:00
-updated: 2026-08-09 00:00:00
+published: 2026-08-09
+updated: 2026-08-09
 description: 从文章写作到布局配置，再到内部链接，一份覆盖 Firefly 博客日常使用的完整指南。
-image: api
+image: "https://jpg.macro.wang/20260810222232203.jpg"
 category: 博客指南
-tags: [Firefly, 博客, 指南, 布局, Markdown]
+tags:
+  - Firefly
+  - 博客
+  - 指南
+  - 布局
+  - Markdown
 draft: false
-pinned: true                                  # 置顶
+pinned: true
 ---
 
 本站基于 [Firefly](https://github.com/CuteLeaf/Firefly) 主题搭建。本文整理了日常使用中最常用的三块内容：文章写作、布局配置和内部链接，方便随时查阅。
@@ -19,20 +24,22 @@ pinned: true                                  # 置顶
 
 ```yaml
 ---
-title: 我的第一篇博客文章        # 文章标题（必填）
-published: 2026-08-09 12:00:00   # 发布时间
-updated: 2026-08-09 12:00:00     # 更新时间
-description: 这是文章的一句话摘要  # 列表卡片和搜索引擎的描述
-image: ./cover.jpg               # 文章封面图，填 "api" 启用随机封面
-slug: hello-world                # 自定义 URL 路径
-category: 博客指南               # 分类
-tags: [Firefly, 博客]            # 标签数组
-draft: false                     # 是否为草稿
-pinned: true                     # 是否置顶
+title: 我的第一篇博客文章
+published: 2026-08-09
+updated: 2026-08-09
+description: 这是文章的一句话摘要
+image: ./cover.jpg
+slug: hello-world
+category: 博客指南
+tags:
+  - Firefly
+  - 博客
+draft: false
+pinned: true
 ---
 ```
 
-> 提示：`published` 和 `updated` 使用 `YYYY-MM-DD HH:mm:SS` 格式；`tags` 既可写成 `[A, B]` 数组，也可写成 YAML 列表。
+> 提示：`published` 和 `updated` 写 `YYYY-MM-DD` 即可；`tags` 推荐写成 `- Firefly` 这样的 YAML 列表。
 
 ## 二、文章文件的放置位置
 
@@ -122,8 +129,8 @@ Firefly 的布局由两个维度共同决定：**侧边栏布局** 和 **文章�
 ```ts
 export const sidebarLayoutConfig: SidebarLayoutConfig = {
   enable: true,
-  position: "left",                    // 左侧边栏
-  showBothSidebarsOnPostPage: true,    // 文章详情页是否显示双侧边栏
+  position: "left",
+  showBothSidebarsOnPostPage: true,
 };
 ```
 
@@ -137,7 +144,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 ```ts
 export const sidebarLayoutConfig: SidebarLayoutConfig = {
   enable: true,
-  position: "both",                    // 双侧边栏
+  position: "both",
 };
 ```
 
@@ -154,7 +161,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 export const siteConfig: SiteConfig = {
   postListLayout: {
     defaultMode: "list",
-    coverPosition: "right",            // 封面位置："right" 或 "left"
+    coverPosition: "right",
   },
 };
 ```
@@ -169,8 +176,8 @@ export const siteConfig: SiteConfig = {
   postListLayout: {
     defaultMode: "grid",
     grid: {
-      masonry: true,                   // 开启瀑布流
-      columnWidth: 320,                // 卡片最小宽度(px)
+      masonry: true,
+      columnWidth: 320,
     },
   },
 };

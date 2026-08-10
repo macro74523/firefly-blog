@@ -98,12 +98,12 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				// 打字机开启 → 循环显示所有副标题
 				// 打字机关闭 → 每次刷新随机显示一条副标题
 				enable: true,
-				// 打字速度（毫秒）
-				speed: 100,
-				// 删除速度（毫秒）
-				deleteSpeed: 50,
-				// 完全显示后的暂停时间（毫秒）
-				pauseTime: 2000,
+				// 淡入时长（毫秒）
+			speed: 600,
+			// 淡出时长（毫秒）
+			deleteSpeed: 600,
+			// 完全显示后的暂停时间（毫秒）
+			pauseTime: 2000,
 			},
 		},
 		// 文章横幅信息："description" 显示描述，"meta" 显示日期、字数和阅读时长
