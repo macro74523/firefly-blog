@@ -14,7 +14,7 @@ export const dynamicConfig: DynamicConfig = {
 	cover: {
 		enable: true,
 		image:
-			"https://ph.0824.uk/file/博客横屏封面/1780635498430_mmexport1774845895097.jpg",
+			"https://jpg.macro.wang/20260811145215679.jpg",
 		greeting: "Hello MACRO",
 	},
 

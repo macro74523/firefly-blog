@@ -9,7 +9,7 @@ export const profileConfig: ProfileConfig = {
 	avatar: "https://jpg.macro.wang/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-28_134011_016.jpg",
 
 	// 名字
-	name: "麦克罗",
+	name: "Maikeluo",
 
 	// 个人签名
 	bio: "还没想好个人签名",
@@ -30,7 +30,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: " ",
+			url: "https://github.com/macro74523",
 			showName: false,
 		},
 		{
