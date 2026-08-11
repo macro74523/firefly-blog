@@ -19,6 +19,7 @@ type DynamicData = {
 	images: DynamicImage[];
 	searchText: string;
 	pinned?: boolean;
+	location?: string;
 };
 
 interface MemosConfig {
@@ -206,6 +207,17 @@ function createItem(entry: DynamicData) {
 			pinned.removeAttribute("hidden");
 		} else {
 			pinned.setAttribute("hidden", "");
+		}
+	}
+
+	// 位置标识
+	const locationEl = root.querySelector<HTMLElement>("[data-dynamic-location]");
+	if (locationEl) {
+		if (entry.location) {
+			locationEl.removeAttribute("hidden");
+			locationEl.querySelector("span")!.textContent = entry.location;
+		} else {
+			locationEl.setAttribute("hidden", "");
 		}
 	}
 

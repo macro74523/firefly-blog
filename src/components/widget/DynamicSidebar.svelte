@@ -18,6 +18,7 @@ interface DynamicEntry {
 	images?: Array<{ alt: string; src: string; title?: string }>;
 	searchText?: string;
 	pinned?: boolean;
+	location?: string;
 }
 
 interface MemosConfig {
@@ -121,6 +122,14 @@ function formatDate(timestamp: number): string {
 						<time datetime={new Date(entry.published).toISOString()}>
 							{formatDate(entry.published)}
 						</time>
+						{#if entry.location}
+							<span class="flex items-center gap-0.5 opacity-70">
+								<svg class="size-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+								</svg>
+								{entry.location}
+							</span>
+						{/if}
 						{#if entry.pinned}
 							<span class="ml-auto inline-flex items-center gap-0.5 text-[10px] px-1 py-0.5 rounded bg-(--primary)/10 text-(--primary) font-medium">
 								<svg class="size-3" fill="currentColor" viewBox="0 0 24 24"><path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2z"/></svg>

@@ -74,12 +74,11 @@ export const siteConfig: SiteConfig = {
 		// 3. 本地图片（src目录，自动优化但会增加构建时间）: { type: "image", value: "assets/images/logo.webp", alt: "Logo" }
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
-			type: "url",
-			value: "https://jpg.macro.wang/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-28_134011_016.jpg",
-			alt: "MACRO Logo",
+			type: "icon",
+			value: "",
 		},
 		// 导航栏标题
-		title: "MACRO",
+		title: "MACRO.WANG",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
 		widthFull: false,
 		// 导航菜单对齐方式，left：左对齐，center：居中

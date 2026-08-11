@@ -30,6 +30,7 @@ export async function GET() {
 				images,
 				searchText: dynamicSearchText(entry),
 				pinned: entry.data.pinned || false,
+				location: entry.data.location?.trim() || "",
 			};
 		}),
 	);

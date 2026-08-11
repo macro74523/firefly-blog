@@ -232,6 +232,30 @@ dynamic-feed {
 	color: var(--primary);
 }
 
+.dynamic-meta {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.dynamic-location {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.15rem;
+	color: var(--content-meta);
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+.dynamic-location svg {
+	font-size: 0.95rem;
+}
+
+.dynamic-location[hidden] {
+	display: none;
+}
+
 .dynamic-permalink {
 	width: 2.5rem;
 	height: 2.5rem;

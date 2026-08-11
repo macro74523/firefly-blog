@@ -30,9 +30,15 @@ const profileLabel = i18n(I18nKey.dynamicProfile).replace(
 				</a>
 				<div class="dynamic-identity">
 					<strong data-dynamic-author>{profileConfig.name}</strong>
-					<a class="dynamic-time" data-dynamic-permalink>
-						<time data-dynamic-time></time>
-					</a>
+					<div class="dynamic-meta">
+						<a class="dynamic-time" data-dynamic-permalink>
+							<time data-dynamic-time></time>
+						</a>
+						<span class="dynamic-location" data-dynamic-location hidden>
+							<Icon is:inline name="material-symbols:location-on-rounded" />
+							<span></span>
+						</span>
+					</div>
 				</div>
 				<span class="dynamic-pinned-badge" data-dynamic-pinned hidden>
 	<Icon is:inline name="material-symbols:push-pin" class="size-3" />
