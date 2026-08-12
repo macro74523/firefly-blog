@@ -123,14 +123,27 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 右侧边栏组件配置列表
 	rightComponents: [
 		{
-			// 组件类型：时间问候卡片
-			type: "timeGreeting",
+			// 组件类型：天气组件
+			type: "weather",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
 			position: "top",
 			// 是否在文章详情页显示
 			showOnPostPage: false,
+			// 组件专属配置
+			specificConfig: {
+				weather: {
+					// 直接指定经纬度（推荐，避免地理编码失败）
+					// 湛江市（广东省）坐标
+					latitude: 21.2711,
+					longitude: 110.3651,
+					// 显示名称
+					displayName: "湛江",
+					// 时区
+					timezone: "Asia/Shanghai",
+				},
+			},
 		},
 		{
 			// 组件类型：站点统计组件

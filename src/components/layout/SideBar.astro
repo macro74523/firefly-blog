@@ -15,6 +15,7 @@ import SiteInfo from "@/components/widget/SiteInfo.astro";
 import SiteStats from "@/components/widget/SiteStats.astro";
 import Tags from "@/components/widget/Tags.astro";
 import TimeGreeting from "@/components/widget/TimeGreeting.astro";
+import Weather from "@/components/widget/Weather.astro";
 import { sidebarLayoutConfig } from "@/config";
 import type {
 	MobileBottomComponentConfig,
@@ -58,6 +59,7 @@ const componentMap = {
 	siteInfo: SiteInfo,
 	githubHeatmap: GitHubHeatmap,
 	timeGreeting: TimeGreeting,
+	weather: Weather,
 	dynamic: Dynamic,
 	schedule: Schedule,
 	quoteOfTheDay: QuoteOfTheDay,
@@ -163,6 +165,19 @@ const getComponentProps = (
 	// 特殊处理 SidebarTOC 组件
 	if (config.type === "sidebarToc") {
 		return { ...baseProps, headings: Astro.props.headings || [] };
+	}
+
+	// 特殊处理 Weather 组件
+	if (config.type === "weather") {
+		const weatherCfg = config.specificConfig?.weather;
+		return {
+			...baseProps,
+			city: weatherCfg?.city ?? "",
+			latitude: weatherCfg?.latitude,
+			longitude: weatherCfg?.longitude,
+			displayName: weatherCfg?.displayName ?? "",
+			timezone: weatherCfg?.timezone ?? "Asia/Shanghai",
+		};
 	}
 
 	return baseProps;

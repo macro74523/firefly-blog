@@ -12,6 +12,7 @@ export type WidgetComponentType =
 	| "siteInfo"
 	| "githubHeatmap"
 	| "timeGreeting"
+	| "weather"
 	| "dynamic"
 	| "schedule"
 	| "quoteOfTheDay";
@@ -45,6 +46,16 @@ export type WidgetSpecificConfig = {
 	ad?: AdConfig; // 广告组件专用配置
 	siteInfo?: SiteInfoConfig; // 站点信息组件专用配置
 	dynamic?: DynamicWidgetConfig; // 最新动态组件专用配置
+	weather?: WeatherConfig; // 天气组件专用配置
+};
+
+// 天气组件专用配置
+export type WeatherConfig = {
+	city?: string; // 城市名称（中文或英文），用于自动获取经纬度
+	latitude?: number; // 纬度（直接指定时优先级高于city）
+	longitude?: number; // 经度（直接指定时优先级高于city）
+	displayName?: string; // 显示名称（使用经纬度时建议填写，否则显示空）
+	timezone?: string; // 时区，默认 Asia/Shanghai
 };
 
 export type DynamicWidgetConfig = {

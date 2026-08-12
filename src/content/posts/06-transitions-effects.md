@@ -5,7 +5,7 @@ slug: jianying-06-transitions-effects
 published: 2026-08-10
 updated: 2026-08-10
 description: 转场和特效的本质是服务内容而不是炫技。掌握 5 个万能安全转场，避开雷区。
-image: "[https://jpg.macro.wang/20260810232915332.jpg](https://jpg.macro.wang/20260810232915332.jpg)"
+image: "https://jpg.macro.wang/20260810232915332.jpg"
 category: 剪辑教程
 tags:
 

@@ -5,7 +5,7 @@ slug: jianying-01-intro
 published: 2026-08-10
 updated: 2026-08-10
 description: 剪辑零基础导学，搞懂这一套逻辑，你才算真正入门剪辑。先学思维，再学操作，一次性避开新手 90% 的坑。
-image: "[https://jpg.macro.wang/20260810232658895.jpg](https://jpg.macro.wang/20260810232658895.jpg)"
+image: "https://jpg.macro.wang/20260810232658895.jpg"
 category: 剪辑教程
 tags:
 

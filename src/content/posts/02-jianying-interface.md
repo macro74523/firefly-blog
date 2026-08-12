@@ -5,7 +5,7 @@ slug: jianying-02-interface
 published: 2026-08-10
 updated: 2026-08-10
 description: 电脑剪映界面全解析，从零新建项目设置，素材导入与管理，杜绝黑边、模糊等常见问题。
-image: "[https://jpg.macro.wang/20260810232710036.jpg](https://jpg.macro.wang/20260810232710036.jpg)"
+image: "https://jpg.macro.wang/20260810232710036.jpg"
 category: 剪辑教程
 tags:
 
