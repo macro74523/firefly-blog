@@ -114,6 +114,8 @@ const getAnimationDelay = (index: number): string => {
 
 // 判断当前页面是否为文章页面（服务端渲染时确定）
 const isPostPage = Astro.url.pathname.includes("/posts/");
+// 判断当前页面是否为动态页
+const isDynamicPage = Astro.url.pathname.startsWith("/dynamic");
 
 // 判断组件在当前页面首屏是否可见（用于计算布局间距，避免隐藏组件占位）
 const isComponentInitiallyVisible = (
@@ -131,6 +133,10 @@ const isComponentInitiallyVisible = (
 		config.hideOnNonPostPage === true &&
 		!isPostPage
 	) {
+		return false;
+	}
+	// 动态页移动端隐藏"最新动态"组件
+	if (config.type === "dynamic" && isDynamicPage) {
 		return false;
 	}
 	return true;
@@ -160,6 +166,11 @@ const getComponentProps = (
 		if (!isPostPage) {
 			baseProps.class = `${baseProps.class} hidden`;
 		}
+	}
+
+	// 动态页移动端隐藏"最新动态"组件（避免与页面内容重复）
+	if (config.type === "dynamic" && isDynamicPage) {
+		baseProps.class = `${baseProps.class} widget-hide-on-dynamic-mobile`;
 	}
 
 	// 特殊处理 SidebarTOC 组件

@@ -1,5 +1,16 @@
 /* Layout specific styles */
 
+/* 移动端隐藏主页横幅标题和标语 */
+@media (max-width: 1023px) {
+    .banner-home-text-overlay {
+        display: none !important;
+    }
+    /* 动态页移动端隐藏"最新动态"侧边栏组件 */
+    .widget-hide-on-dynamic-mobile {
+        display: none !important;
+    }
+}
+
 /* 用户关闭时隐藏横幅标题（需要足够特异性覆盖 fullscreen/overlay 的 display: flex !important） */
 html[data-banner-title-enabled="false"] #wallpaper-wrapper.wallpaper-fullscreen .banner-home-text-overlay,
 html[data-banner-title-enabled="false"] #wallpaper-wrapper.wallpaper-overlay .banner-home-text-overlay {
