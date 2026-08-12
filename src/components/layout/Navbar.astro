@@ -4,6 +4,7 @@ import * as path from "node:path";
 import type { ImageMetadata } from "astro";
 import { Icon } from "astro-icon/components";
 import DisplaySettings from "@/components/controls/DisplaySettingsIntegrated.svelte";
+import LayoutSwitchButton from "@/components/controls/LayoutSwitchButton.svelte";
 import LightDarkSwitch from "@/components/controls/LightDarkSwitch.svelte";
 import Search from "@/components/controls/Search.svelte";
 import MusicPlayer from "@/components/features/MusicPlayer.astro";
@@ -179,6 +180,10 @@ if (isLocalSrcLogo) {
                             <Icon is:inline name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
                         </button>
                 )}
+                {allowLayoutSwitch && (
+                    /* @ts-ignore */
+                    <LayoutSwitchButton client:load></LayoutSwitchButton>
+                )}
                 {/* @ts-ignore */}
                 <LightDarkSwitch client:load></LightDarkSwitch>
                 <button aria-label="Menu" name="Nav Menu" class="btn-plain scale-animation rounded-lg w-9 h-9 md:w-11 md:h-11 active:scale-90 lg:hidden!" id="nav-menu-switch">
@@ -273,18 +278,15 @@ function loadButtonScript() {
     }
 
     let themeSwitchBtn = document.getElementById("scheme-switch");
+    // 主题切换按钮的点击事件由 LightDarkSwitch.svelte 组件内部处理（点击循环切换亮/暗/系统）
+    // 此处无需再绑定下拉面板逻辑
     if (themeSwitchBtn) {
-        themeSwitchBtn.onclick = function () {
-            let themePanel = document.getElementById("theme-mode-panel");
-            if (themePanel) {
-                themePanel.classList.toggle("float-panel-closed");
-            }
-        };
+        themeSwitchBtn.onclick = null;
     }
 
     document.addEventListener("click", function(event) {
-        const panels = ["display-setting", "nav-menu-panel", "music-nav-panel", "theme-mode-panel"];
-        const buttons = ["display-settings-switch", "nav-menu-switch", "music-player-switch", "scheme-switch"];
+        const panels = ["display-setting", "nav-menu-panel", "music-nav-panel"];
+        const buttons = ["display-settings-switch", "nav-menu-switch", "music-player-switch"];
 
         panels.forEach((id, index) => {
             const panel = document.getElementById(id);

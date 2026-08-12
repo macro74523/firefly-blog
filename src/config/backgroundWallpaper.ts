@@ -41,7 +41,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	 */
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
-		desktop: "https://jpg.macro.wang/4f5d1957e91016781c9e729b40bb3e10.webp",
+		desktop: "https://jpg.macro.wang/20260812121523010.jpg",
 		// desktop: [
 		// 	"assets/images/DesktopWallpaper/d1.avif",
 		// 	"assets/images/DesktopWallpaper/d2.avif",
@@ -51,7 +51,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 	"assets/images/DesktopWallpaper/d6.avif",
 		// ],
 		// 移动背景图片（支持单张或多张随机）
-		mobile: "https://jpg.macro.wang/4f5d1957e91016781c9e729b40bb3e10.webp",
+		mobile: "https://jpg.macro.wang/20260812121523010.jpg",
 		// mobile: [
 		// 	"assets/images/MobileWallpaper/m1.avif",
 		// 	"assets/images/MobileWallpaper/m2.avif",
@@ -160,7 +160,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 图片位置
 		// 支持所有CSS object-position值，如: 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'..
 		// 如果不知道怎么配置百分百之类的配置，推荐直接使用：'center'居中，'top'顶部居中，'bottom' 底部居中，'left'左侧居中，'right'右侧居中
-		position: "0% 80%",
+		position: "0% 40%",
 	},
 	// 全屏透明覆盖模式特有配置
 	overlay: {

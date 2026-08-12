@@ -10,15 +10,4 @@ export const announcementConfig: AnnouncementConfig = {
 
 	// 是否允许用户关闭公告
 	closable: true,
-
-	link: {
-		// 启用链接
-		enable: true,
-		// 链接文本
-		text: "加群交流",
-		// 链接 URL
-		url: "  ",
-		// 内部链接
-		external: false,
-	},
 };

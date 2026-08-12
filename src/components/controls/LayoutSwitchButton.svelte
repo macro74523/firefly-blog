@@ -6,7 +6,7 @@ export let currentLayout: "list" | "grid" = "list";
 
 /**
  * 文章列表布局切换按钮
- * 目前已弃用，已集成至DisplaySettingsIntegrated.svelte，当前文件保留以备将来可能的单独使用
+ * 导航栏独立按钮，点击直接切换列表/网格布局
  */
 
 let mounted = false;
@@ -101,12 +101,12 @@ onMount(() => {
 </script>
 
 {#if mounted && siteConfig.postListLayout.allowSwitch && !isSmallScreen}
-  <button 
-    aria-label="切换文章列表布局" 
-    class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90 flex items-center justify-center theme-switch-btn {isSwitching ? 'switching' : ''}" 
+  <button
+    aria-label="切换文章列表布局"
+    class="btn-plain scale-animation rounded-lg h-9 w-9 md:h-11 md:w-11 active:scale-90 flex items-center justify-center theme-switch-btn {isSwitching ? 'switching' : ''}"
     on:click={switchLayout}
     disabled={isSwitching}
-    title={currentLayout === 'list' ? '切换到网格模式' : '切换到列表模式'}
+    title={currentLayout === 'list' ? '当前：列表模式（点击切换到网格）' : '当前：网格模式（点击切换到列表）'}
   >
       {#if currentLayout === 'list'}
         <!-- 列表图标 -->

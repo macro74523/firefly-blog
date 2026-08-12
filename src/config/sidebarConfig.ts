@@ -134,7 +134,10 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件专属配置
 			specificConfig: {
 				weather: {
-					// 直接指定经纬度（推荐，避免地理编码失败）
+					// 是否根据访问者地理位置自动定位（需用户在浏览器授权定位）
+					// 授权后显示访问者所在地的天气；拒绝/失败时回退到下方配置的默认城市
+					autoLocate: true,
+					// 默认城市（自动定位失败时使用）
 					// 湛江市（广东省）坐标
 					latitude: 21.2711,
 					longitude: 110.3651,

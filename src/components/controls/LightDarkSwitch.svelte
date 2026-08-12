@@ -1,9 +1,5 @@
 <script lang="ts">
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
 import { onMount } from "svelte";
-import DropdownItem from "@/components/common/DropdownItem.svelte";
-import DropdownPanel from "@/components/common/DropdownPanel.svelte";
 import Icon from "@/components/common/Icon.svelte";
 import { DARK_MODE, LIGHT_MODE, SYSTEM_MODE } from "@/constants/constants";
 import type { LIGHT_DARK_MODE } from "@/types/config.ts";
@@ -27,9 +23,15 @@ type WindowWithSwup = Window & { swup?: SwupInstance };
 let mode: LIGHT_DARK_MODE = $state(LIGHT_MODE);
 let displayedMode: LIGHT_DARK_MODE = $state(LIGHT_MODE); // 显示的实际主题（在system模式下会随系统变化）
 
-function switchScheme(newMode: LIGHT_DARK_MODE) {
-	mode = newMode;
-	setTheme(newMode);
+// 循环切换顺序：亮色 → 暗色 → 跟随系统 → 亮色
+const cycleOrder: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE, SYSTEM_MODE];
+
+function cycleScheme() {
+	const currentIndex = cycleOrder.indexOf(mode);
+	const nextIndex = (currentIndex + 1) % cycleOrder.length;
+	const nextMode = cycleOrder[nextIndex];
+	mode = nextMode;
+	setTheme(nextMode);
 	updateDisplayedMode();
 }
 
@@ -44,6 +46,13 @@ function updateDisplayedMode() {
 	} else {
 		displayedMode = mode;
 	}
+}
+
+// 获取当前模式的标签文字（用于 title 提示）
+function getModeLabel(): string {
+	if (mode === LIGHT_MODE) return "亮色模式（点击切换到暗色）";
+	if (mode === DARK_MODE) return "暗色模式（点击切换到跟随系统）";
+	return "跟随系统（点击切换到亮色）";
 }
 
 // 使用onMount确保在组件挂载后正确初始化
@@ -116,43 +125,24 @@ onMount(() => {
 </script>
 
 <div class="relative z-50">
-    <button aria-label="Light/Dark Mode" aria-haspopup="menu" class="relative btn-plain scale-animation rounded-lg h-9 w-9 md:h-11 md:w-11 active:scale-90" id="scheme-switch">
-        <div class="absolute inset-0 flex items-center justify-center" class:opacity-0={displayedMode !== LIGHT_MODE}>
+    <button
+	    aria-label="Light/Dark Mode"
+	    title={getModeLabel()}
+	    class="relative btn-plain scale-animation rounded-lg h-9 w-9 md:h-11 md:w-11 active:scale-90"
+	    id="scheme-switch"
+	    onclick={cycleScheme}
+    >
+        <!-- 亮色图标 -->
+        <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300" class:opacity-0={displayedMode !== LIGHT_MODE || mode === SYSTEM_MODE}>
             <Icon icon="material-symbols:wb-sunny-outline-rounded" class="text-[1.25rem]"></Icon>
         </div>
-        <div class="absolute inset-0 flex items-center justify-center" class:opacity-0={displayedMode !== DARK_MODE}>
+        <!-- 暗色图标 -->
+        <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300" class:opacity-0={displayedMode !== DARK_MODE || mode === SYSTEM_MODE}>
             <Icon icon="material-symbols:dark-mode-outline-rounded" class="text-[1.25rem]"></Icon>
         </div>
+        <!-- 跟随系统图标 -->
+        <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300" class:opacity-0={mode !== SYSTEM_MODE}>
+            <Icon icon="material-symbols:brightness-auto-outline-rounded" class="text-[1.25rem]"></Icon>
+        </div>
     </button>
-    <div id="theme-mode-panel" class="absolute transition float-panel-closed top-11 -right-2 pt-5 z-50" role="menu" aria-labelledby="scheme-switch">
-        <DropdownPanel>
-            <DropdownItem
-                role="menuitem"
-                isActive={mode === LIGHT_MODE}
-                isLast={false}
-                onclick={() => switchScheme(LIGHT_MODE)}
-            >
-                <Icon icon="material-symbols:wb-sunny-outline-rounded" class="text-[1.25rem] mr-3"></Icon>
-                {i18n(I18nKey.lightMode)}
-            </DropdownItem>
-            <DropdownItem
-                role="menuitem"
-                isActive={mode === DARK_MODE}
-                isLast={false}
-                onclick={() => switchScheme(DARK_MODE)}
-            >
-                <Icon icon="material-symbols:dark-mode-outline-rounded" class="text-[1.25rem] mr-3"></Icon>
-                {i18n(I18nKey.darkMode)}
-            </DropdownItem>
-            <DropdownItem
-                role="menuitem"
-                isActive={mode === SYSTEM_MODE}
-                isLast={true}
-                onclick={() => switchScheme(SYSTEM_MODE)}
-            >
-                <Icon icon="material-symbols:brightness-auto-outline-rounded" class="text-[1.25rem] mr-3"></Icon>
-                {i18n(I18nKey.systemMode)}
-            </DropdownItem>
-        </DropdownPanel>
-    </div>
 </div>

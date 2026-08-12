@@ -220,6 +220,33 @@ html {
         opacity: 0;
     }
 
+    /* === 骨架屏（鱼骨屏）shimmer 动画 === */
+    @keyframes skeleton-shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    .skeleton-block {
+        background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--card-bg) 100%, transparent) 0%,
+            color-mix(in srgb, var(--content-meta) 12%, var(--card-bg)) 50%,
+            color-mix(in srgb, var(--card-bg) 100%, transparent) 100%
+        );
+        background-size: 200% 100%;
+        animation: skeleton-shimmer 1.4s ease-in-out infinite;
+        border-radius: 0.375rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .skeleton-block {
+            animation-duration: 2.8s;
+        }
+    }
 
     /* 开启边框和阴影效果时的样式 */
     .enable-card-border .card-base {

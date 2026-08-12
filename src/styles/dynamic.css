@@ -624,39 +624,64 @@ dynamic-feed {
 	margin: 0;
 }
 
-.dynamic-loading {
-	display: grid;
-	min-height: 10rem;
+/* === 动态页骨架屏（鱼骨屏）=== */
+.dynamic-skeleton-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
 	margin-top: 0.875rem;
-	place-content: center;
-	justify-items: center;
+}
+
+.dynamic-skeleton-item {
+	padding: 1.25rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.dynamic-skeleton-header {
+	display: flex;
+	align-items: center;
 	gap: 0.75rem;
-	color: var(--content-meta);
 }
 
-.dynamic-loading-spinner {
-	width: 2rem;
-	height: 2rem;
-	border: 0.2rem solid color-mix(in srgb, var(--primary) 18%, transparent);
-	border-top-color: var(--primary);
+.dynamic-skeleton-avatar {
+	width: 2.5rem;
+	height: 2.5rem;
 	border-radius: 50%;
-	animation: dynamic-loading-spin 0.75s linear infinite;
+	flex-shrink: 0;
 }
 
-.dynamic-loading p {
-	margin: 0;
+.dynamic-skeleton-identity {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	flex: 1;
 }
 
-@keyframes dynamic-loading-spin {
-	to {
-		transform: rotate(360deg);
-	}
+.dynamic-skeleton-name {
+	width: 6rem;
+	height: 0.9rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.dynamic-loading-spinner {
-		animation-duration: 1.5s;
-	}
+.dynamic-skeleton-time {
+	width: 9rem;
+	height: 0.7rem;
+}
+
+.dynamic-skeleton-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.dynamic-skeleton-line {
+	width: 100%;
+	height: 0.75rem;
+}
+
+.dynamic-skeleton-line-short {
+	width: 60%;
 }
 
 .dynamic-no-results {

@@ -324,9 +324,23 @@ onMount(() => {
 </script>
 
 {#if loading}
-	<div class="dynamic-loading card-base" role="status">
-		<span class="dynamic-loading-spinner" aria-hidden="true"></span>
-		<p>{loadingText}</p>
+	<div class="dynamic-skeleton-list" role="status" aria-label={loadingText}>
+		{#each Array(3) as _, i (i)}
+			<div class="dynamic-skeleton-item card-base">
+				<div class="dynamic-skeleton-header">
+					<div class="skeleton-block dynamic-skeleton-avatar"></div>
+					<div class="dynamic-skeleton-identity">
+						<div class="skeleton-block dynamic-skeleton-name"></div>
+						<div class="skeleton-block dynamic-skeleton-time"></div>
+					</div>
+				</div>
+				<div class="dynamic-skeleton-content">
+					<div class="skeleton-block dynamic-skeleton-line"></div>
+					<div class="skeleton-block dynamic-skeleton-line"></div>
+					<div class="skeleton-block dynamic-skeleton-line dynamic-skeleton-line-short"></div>
+				</div>
+			</div>
+		{/each}
 	</div>
 {:else if failed || entries.length === 0}
 	<div class="dynamic-empty card-base">

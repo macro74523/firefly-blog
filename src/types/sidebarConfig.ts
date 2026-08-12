@@ -56,6 +56,7 @@ export type WeatherConfig = {
 	longitude?: number; // 经度（直接指定时优先级高于city）
 	displayName?: string; // 显示名称（使用经纬度时建议填写，否则显示空）
 	timezone?: string; // 时区，默认 Asia/Shanghai
+	autoLocate?: boolean; // 是否根据访问者地理位置自动定位（需用户授权），失败时回退到已配置的城市
 };
 
 export type DynamicWidgetConfig = {

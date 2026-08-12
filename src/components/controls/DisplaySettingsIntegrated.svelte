@@ -173,7 +173,6 @@ let cardSettingsIsDefault = $derived(
 const hasAnyContent =
 	showThemeColor ||
 	isWallpaperSwitchable ||
-	allowLayoutSwitch ||
 	hasBannerSettings ||
 	hasOverlaySettings ||
 	isSakuraSwitchable;
@@ -181,7 +180,6 @@ const hasAnyContent =
 // --- Tab visibility ---
 const hasAppearanceTab = $derived(
 	showThemeColor ||
-		allowLayoutSwitch ||
 		isCardBorderSwitchable ||
 		isCardFollowThemeSwitchable,
 );
@@ -644,50 +642,7 @@ $effect(() => {
 		</div>
 		{/if}
 
-		<!-- Layout Switch Section -->
-		{#if allowLayoutSwitch}
-		<div class="">
-			<div class="section-title">
-				{i18n(I18nKey.postListLayout)}
-				<button aria-label="Reset to Default" class="btn-regular rounded-md active:scale-90"
-						class:opacity-0={currentLayout === effectiveDefaultLayout} class:pointer-events-none={currentLayout === effectiveDefaultLayout} onclick={resetLayout}>
-					<div class="text-(--btn-content)">
-						<Icon icon="fa7-solid:arrow-rotate-left" class="text-[0.75rem]"></Icon>
-					</div>
-				</button>
-			</div>
-			<div class="flex gap-2">
-				<button
-					aria-label={i18n(I18nKey.postListLayoutList)}
-					class="flex-1 btn-regular rounded-md py-2 px-3 flex items-center justify-center gap-2 active:scale-95 transition-all relative overflow-hidden"
-					class:opacity-60={currentLayout !== 'list'}
-					class:bg-(--btn-regular-bg-hover)={currentLayout === 'list'}
-					disabled={isSwitching}
-					onclick={switchLayout}
-					title={i18n(I18nKey.postListLayoutList)}
-				>
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-					</svg>
-					<span class="text-xs font-medium">{i18n(I18nKey.postListLayoutList)}</span>
-				</button>
-				<button
-					aria-label={i18n(I18nKey.postListLayoutGrid)}
-					class="flex-1 btn-regular rounded-md py-2 px-3 flex items-center justify-center gap-2 active:scale-95 transition-all relative overflow-hidden"
-					class:opacity-60={currentLayout !== 'grid'}
-					class:bg-(--btn-regular-bg-hover)={currentLayout === 'grid'}
-					disabled={isSwitching}
-					onclick={switchLayout}
-					title={i18n(I18nKey.postListLayoutGrid)}
-				>
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-						<path d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z"/>
-					</svg>
-					<span class="text-xs font-medium">{i18n(I18nKey.postListLayoutGrid)}</span>
-				</button>
-			</div>
-		</div>
-		{/if}
+		<!-- Layout Switch Section: 已移至导航栏独立按钮，面板中不再显示 -->
 
 		<!-- Card Settings Section -->
 		{#if isCardBorderSwitchable || isCardFollowThemeSwitchable}

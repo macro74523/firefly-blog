@@ -14,6 +14,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	const links: NavBarLink[] = [
 		// 主页
 		LinkPresets.Home,
+
+		// 动态（从"我的"提升为一级菜单，放在主页旁边）
+		LinkPresets.Dynamic,
 	];
 
 	// 文章及其子菜单
@@ -33,28 +36,17 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	//社交及其子菜单
-	links.push({
-		name: "社交",
-		url: "#",
-		icon: "material-symbols:group",
-		children: [
-			// 友链
-			LinkPresets.Friends,
-
-			// 留言
-			LinkPresets.Guestbook,
-		],
-	});
-
-	// 我的及其子菜单
+	// 我的及其子菜单（留言、友链从社交移到这里）
 	links.push({
 		name: "我的",
 		url: "#",
 		icon: "material-symbols:person",
 		children: [
-			// 动态
-			LinkPresets.Dynamic,
+			// 留言
+			LinkPresets.Guestbook,
+
+			// 友链
+			LinkPresets.Friends,
 
 			// 相册
 			LinkPresets.Gallery,

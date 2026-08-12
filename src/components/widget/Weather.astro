@@ -11,9 +11,11 @@ interface Props {
 	displayName?: string;
 	// 时区，默认 Asia/Shanghai
 	timezone?: string;
+	// 是否根据访问者地理位置自动定位（需用户授权），失败时回退到已配置的城市
+	autoLocate?: boolean;
 }
 
-const { class: className, style, city = "", latitude, longitude, displayName = "", timezone = "Asia/Shanghai" } = Astro.props;
+const { class: className, style, city = "", latitude, longitude, displayName = "", timezone = "Asia/Shanghai", autoLocate = false } = Astro.props;
 ---
 
 <div
@@ -25,6 +27,7 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 	data-lon={longitude?.toString() ?? ""}
 	data-display-name={displayName}
 	data-tz={timezone}
+	data-auto-locate={autoLocate ? "true" : "false"}
 >
 	<div class="px-5 pt-4 pb-3 flex items-center justify-between">
 		<div class="flex items-center gap-1.5">
@@ -127,6 +130,7 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 		longitude: null,
 		displayName: "",
 		timezone: "Asia/Shanghai",
+		autoLocate: false,
 	};
 
 	function getCookie(name) {
@@ -173,11 +177,25 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 		iconEl.innerHTML = getWeatherIcon(weatherInfo.icon);
 	}
 
-	async function fetchWeather() {
+	async function reverseGeocode(lat, lon) {
 		try {
-			let lat = config.latitude;
-			let lon = config.longitude;
-			let cityName = config.city;
+			const resp = await fetch(
+				'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' + lat + '&longitude=' + lon + '&localityLanguage=zh'
+			);
+			if (!resp.ok) throw new Error('Reverse geocode failed');
+			const data = await resp.json();
+			// 优先使用城市名，其次使用行政区名
+			return data.city || data.locality || data.principalSubdivision || data.countryName || '';
+		} catch (e) {
+			return '';
+		}
+	}
+
+	async function fetchWeather(overrideLat, overrideLon, overrideName) {
+		try {
+			let lat = overrideLat !== undefined ? overrideLat : config.latitude;
+			let lon = overrideLon !== undefined ? overrideLon : config.longitude;
+			let cityName = overrideName !== undefined ? overrideName : config.city;
 
 			// If no coordinates, try to geocode the city name
 			if (lat === null || lon === null) {
@@ -229,7 +247,29 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 		}
 	}
 
-	function initWeather() {
+	function getVisitorLocation() {
+		return new Promise((resolve) => {
+			if (!navigator.geolocation) {
+				resolve(null);
+				return;
+			}
+			// 超时 8 秒后回退到默认城市
+			const timer = setTimeout(() => resolve(null), 8000);
+			navigator.geolocation.getCurrentPosition(
+				(pos) => {
+					clearTimeout(timer);
+					resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude });
+				},
+				() => {
+					clearTimeout(timer);
+					resolve(null);
+				},
+				{ timeout: 8000, maximumAge: 600000 }
+			);
+		});
+	}
+
+	async function initWeather() {
 		// Read config from the element's data attributes
 		const widget = document.getElementById('weather-widget');
 		if (!widget) return;
@@ -240,9 +280,34 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 			longitude: widget.dataset.lon ? parseFloat(widget.dataset.lon) : config.longitude,
 			displayName: widget.dataset.displayName || config.displayName,
 			timezone: widget.dataset.tz || config.timezone,
+			autoLocate: widget.dataset.autoLocate === 'true',
 		};
 
 		Object.assign(config, widgetConfig);
+
+		// 自动定位模式：尝试获取访问者位置
+		if (config.autoLocate) {
+			// 优先使用缓存的定位结果（30 分钟内）
+			const cachedLoc = getCookie('weather_autoloc');
+			if (cachedLoc) {
+				try {
+					const loc = JSON.parse(decodeURIComponent(cachedLoc));
+					fetchWeather(loc.lat, loc.lon, loc.name);
+					return;
+				} catch (e) {}
+			}
+
+			const position = await getVisitorLocation();
+			if (position) {
+				// 反向地理编码获取城市名
+				const cityName = await reverseGeocode(position.lat, position.lon);
+				// 缓存定位结果 30 分钟
+				setCookie('weather_autoloc', encodeURIComponent(JSON.stringify({ lat: position.lat, lon: position.lon, name: cityName })), 1 / 48);
+				fetchWeather(position.lat, position.lon, cityName);
+				return;
+			}
+			// 定位失败/被拒绝 → 回退到默认城市
+		}
 
 		// 检查是否有经纬度或城市名
 		const hasCoords = config.latitude !== null && config.longitude !== null && !isNaN(config.latitude);
@@ -259,8 +324,20 @@ const { class: className, style, city = "", latitude, longitude, displayName = "
 	// Initialize
 	initWeather();
 
-	// Update every 30 minutes
-	setInterval(fetchWeather, 30 * 60 * 1000);
+	// Update every 30 minutes（使用缓存的定位结果刷新天气）
+	setInterval(() => {
+		if (config.autoLocate) {
+			const cachedLoc = getCookie('weather_autoloc');
+			if (cachedLoc) {
+				try {
+					const loc = JSON.parse(decodeURIComponent(cachedLoc));
+					fetchWeather(loc.lat, loc.lon, loc.name);
+					return;
+				} catch (e) {}
+			}
+		}
+		fetchWeather();
+	}, 30 * 60 * 1000);
 
 	document.addEventListener("swup:contentReplaced", () => {
 		initWeather();
